@@ -41,3 +41,7 @@ summary(m)
 sd(m)
 summary(f)
 sd(f)
+
+
+# sorting through each department and the total money they spend 
+unique(my_data$V4)
