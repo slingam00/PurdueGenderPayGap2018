@@ -45,19 +45,18 @@ sd(f)
 
 # sorting through each department and the total money they spend 
 l <- list();
-theSum = 0
 df = data.frame(x = character(), y = numeric(), stringsAsFactors = FALSE)
 for (i in unique(my_data$V4)) {
+  theSum = 0
   xx <- my_data[my_data$V4 == i,]
-  xx
   experiment <- xx$V10
-  experiment
   experiment <- as.numeric(gsub('[$,]', '', experiment))
-  experiment
   theSum = sum(experiment)
-  theSum
   df <- rbind(df, data.frame(x = i, y = theSum))
   df
 }
 
-
+df
+colnames(df) <- c("Departments", "Total Staff Salaries")
+df
+df[order(df$`Total Staff Salaries`),]
