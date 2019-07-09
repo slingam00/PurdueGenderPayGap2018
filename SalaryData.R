@@ -44,4 +44,15 @@ sd(f)
 
 
 # sorting through each department and the total money they spend 
-unique(my_data$V4)
+l <- list();
+theSum = 0
+for (i in unique(my_data$V4)) {
+  xx <- my_data[my_data$V4 == i,]
+  xx
+  experiment <- xx$V10
+  experiment
+  experiment <- as.numeric(gsub('[$,]', '', experiment))
+  experiment
+  theSum = theSum + sum(experiment)
+  theSum
+}
