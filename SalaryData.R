@@ -46,6 +46,7 @@ sd(f)
 # sorting through each department and the total money they spend 
 l <- list();
 theSum = 0
+df = data.frame(x = character(), y = numeric(), stringsAsFactors = FALSE)
 for (i in unique(my_data$V4)) {
   xx <- my_data[my_data$V4 == i,]
   xx
@@ -53,6 +54,10 @@ for (i in unique(my_data$V4)) {
   experiment
   experiment <- as.numeric(gsub('[$,]', '', experiment))
   experiment
-  theSum = theSum + sum(experiment)
+  theSum = sum(experiment)
   theSum
+  df <- rbind(df, data.frame(x = i, y = theSum))
+  df
 }
+
+
