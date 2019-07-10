@@ -4,6 +4,24 @@ m <- males$V10
 m <- as.numeric(gsub('[$,]', '', m))
 sd(m)
 summary(m)
+length(m)
+
+v <- vector(,100)
+for (i in 1:100) {
+  xxx <- sample(m, 250)
+  v[i] <- mean(xxx)
+};
+v
+hist(v, prob = T, breaks = 10)
+
+i <- 1
+while(i < 100) {
+  xxx <- sample(m, 100)
+  l[i] <- mean(xxx)
+  i <- i + 1
+}
+l
+dd <- data.frame(l)
 
 females <- my_data[my_data$V11 == 'F',]
 f <- females$V10
@@ -11,6 +29,7 @@ f <- as.numeric(gsub('[$,]', '', f))
 f
 sd(f)
 summary(f)
+length(f)
 
 total<- sum(m) + sum(f)
 
@@ -59,4 +78,7 @@ for (i in unique(my_data$V4)) {
 df
 colnames(df) <- c("Departments", "Total Staff Salaries")
 df
-df[order(df$`Total Staff Salaries`),]
+df <- df[order(df$`Total Staff Salaries`),]
+
+yy <- sum(tail(df$`Total Staff Salaries`, 10))
+yy/total
