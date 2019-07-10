@@ -14,14 +14,19 @@ for (i in 1:100) {
 v
 hist(v, prob = T, breaks = 10)
 
-i <- 1
-while(i < 100) {
-  xxx <- sample(m, 100)
-  l[i] <- mean(xxx)
-  i <- i + 1
-}
-l
-dd <- data.frame(l)
+xxx <- sample(m, 500)
+mm <- mean(xxx) 
+v <- var(xxx)
+sd <- sqrt(v)
+
+a <- mm
+s <- sd
+n <- 500
+error <- qnorm(0.95)*s/sqrt(n)
+left <- a-error
+right <- a+error
+left
+right
 
 females <- my_data[my_data$V11 == 'F',]
 f <- females$V10
@@ -30,6 +35,20 @@ f
 sd(f)
 summary(f)
 length(f)
+
+yyy <- sample(f, 500)
+mm <- mean(yyy) 
+v <- var(yyy)
+sd <- sqrt(v)
+
+a <- mm
+s <- sd
+n <- 500
+error <- qnorm(0.95)*s/sqrt(n)
+left <- a-error
+right <- a+error
+left
+right
 
 total<- sum(m) + sum(f)
 
