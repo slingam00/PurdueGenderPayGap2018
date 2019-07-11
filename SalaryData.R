@@ -50,6 +50,8 @@ right <- a+error
 left
 right
 
+t.test(xxx, yyy)
+
 total<- sum(m) + sum(f)
 
 athletics <- my_data[my_data$V4 == 'WL - 4Interc Athl',]
